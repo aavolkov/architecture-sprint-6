@@ -1,0 +1,33 @@
+С GraphQL клиент может запрашивать только те поля, которые ему нужны, избегая лишних запросов. Это помогает:
+
+Снизить RPS: Вместо выполнения нескольких REST-запросов (например, /clients/{id}, /clients/{id}/documents, /clients/{id}/relatives), достаточно одного GraphQL-запроса.
+Оптимизировать передачу данных: Клиент запрашивает только нужные поля (например, только id и name клиента), что уменьшает объем передаваемых данных.
+Улучшить пользовательский опыт: Меньшая задержка при выполнении одного запроса по сравнению с последовательным вызовом нескольких REST-эндпоинтов.
+
+
+type Client {
+  id: ID!
+  name: String
+  age: Int
+  documents: [Document]
+  relatives: [Relative]
+}
+
+type Document {
+  id: ID!
+  type: String
+  number: String
+  issueDate: String
+  expiryDate: String
+}
+
+type Relative {
+  id: ID!
+  relationType: String
+  name: String
+  age: Int
+}
+
+type Query {
+  client(id: ID!): Client
+}

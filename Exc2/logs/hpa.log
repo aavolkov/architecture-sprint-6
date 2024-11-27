@@ -1,0 +1,11 @@
+Лог по отслеживанию увеличения нагрузки
+
+PS D:\GIT\architecture-sprint-6\exc2> kubectl get hpa
+NAME               REFERENCE                 TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+scaletestapp-hpa   Deployment/scaletestapp   memory: 30%/80%   1         10        1          22m
+PS D:\GIT\architecture-sprint-6\exc2> kubectl get hpa
+NAME               REFERENCE                 TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+scaletestapp-hpa   Deployment/scaletestapp   memory: 92%/80%   1         10        1          23m
+PS D:\GIT\architecture-sprint-6\exc2> kubectl get hpa
+NAME               REFERENCE                 TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+scaletestapp-hpa   Deployment/scaletestapp   memory: 69%/80%   1         10        2          23m
